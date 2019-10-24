@@ -33,3 +33,37 @@ function cumulativeSum(list) {
 
 console.log('Cumulative Sum Test Results');
 console.log(cumulativeSum([1, 2, 3, 4]));
+
+function maxPrimeSum(threshold) {
+  const list = [];
+  let i;
+  let count = 0;
+  let total = 0;
+  const primes = primeGen(threshold);
+
+  while (total <= threshold) {
+    for (i = 0; i < primes.length; i++) {
+      count++;
+      total += primes[i];
+      if (total > threshold) {
+        break;
+      }
+    }
+  }
+  if (primeCheck(total) === true) {
+    list.push(total);
+  } else {
+    while (primeCheck(total) === false) {
+      total -= primes[i];
+      i--;
+      count--;
+    }
+    list.push(total);
+    list.push(count);
+  }
+  return list;
+}
+
+const highestPrime = maxPrimeSum(100);
+console.log('MaxPrimeSum Test Results');
+console.log(highestPrime);
