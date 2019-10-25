@@ -20,4 +20,3 @@ function primeGen(threshold) {
 }
 console.log('PrimeGen Test Results');
 console.log(primeGen(10));
-
