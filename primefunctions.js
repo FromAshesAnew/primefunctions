@@ -66,6 +66,6 @@ function maxPrimeSum(threshold) {
   return list2;
 }
 
-const highestPrime = maxPrimeSum(100);
+const highestPrime = maxPrimeSum(1000);
 console.log('MaxPrimeSum Test Results');
 console.log(highestPrime);
