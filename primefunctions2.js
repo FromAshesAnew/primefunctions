@@ -1,6 +1,7 @@
 function primeCheck(threshold) {
   let i;
-  for (i = 2; i < threshold; i++) {
+  // changed to Math.sqrt(threshold) instead of threshold to cut down time
+  for (i = 2; i <= Math.sqrt(threshold); i++) {
     if (threshold % i === 0) {
       return false;
     }
@@ -36,11 +37,9 @@ console.log(cumulativeSum([1, 2, 3, 4]));
 
 function maxPrimeSum(threshold) {
   const Primes = primeGen(threshold);
-  const passed = threshold;
   let biggestSums = 0;
   let Prime = 0;
   let list2 = [];
-
 
   for (let outer = 0; Primes[outer] < threshold; outer++) {
     for (let inner = 0; inner < outer; inner++) {
@@ -55,7 +54,7 @@ function maxPrimeSum(threshold) {
         break;
       }
 
-      if (primeCheck(sums) == true) {
+      if (primeCheck(sums) === true) {
         if (biggestSums <= outer - inner) {
           biggestSums = outer - inner;
           Prime = sums;
